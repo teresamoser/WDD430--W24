@@ -8,7 +8,7 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent {
   recipes: Recipe[] = [
-    new Recipe('A Test Recipe','This is simply a test', 'https://cdn.stocksnap.io/img-thumbs/960w/food-recipe_G8QICMKLUV.jpg' )
+    new Recipe('A Test Recipe','This is simply a test', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn7hFmyFR447L9WnDB7PQ7Mh0rQBbthcGguQ&usqp=CAU' )
   ];
   constructor() { }
 
