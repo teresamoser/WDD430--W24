@@ -1,0 +1,14 @@
+.panel-title {
+    margin: 2px;
+    padding: 2px;
+    font-size: 24px;
+}
+.contact-image {
+    width: 8rem;
+}
+
+.btn-primary, .btn-danger {
+    margin: 2px;
+    margin-top: 30px;
+        
+}
