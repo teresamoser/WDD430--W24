@@ -11,6 +11,8 @@ import { DocumentsComponent } from './documents/documents.component';
 import { DocumentDetailComponent } from './documents/document-detail/document-detail.component';
 import { DocumentItemComponent } from './documents/document-item/document-item.component';
 import { DocumentListComponent } from './documents/document-list/document-list.component';
+import { MessageItemComponent } from './messages/message-item/message-item.component';
+
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { DocumentListComponent } from './documents/document-list/document-list.c
     DocumentDetailComponent,
     DocumentItemComponent,
     DocumentListComponent,
+    MessageItemComponent,
   ],
   imports: [
     BrowserModule
