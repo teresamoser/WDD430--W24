@@ -1,3 +1,7 @@
-<app-header>Header works!</app-header>
-<app-contacts>Contacts works!</app-contacts>
+<app-header (selectedFeatureEvent)="switchView($event)"></app-header>
+<div class="container-pull left" [ngSwitch]="selectedFeature">
+    <app-documents *ngSwitchCase="'documents'"></app-documents>
+    <app-message-list *ngSwitchCase="'messages'"></app-message-list>
+    <app-contacts *ngSwitchCase="'contacts'"></app-contacts>
 
+</div>
