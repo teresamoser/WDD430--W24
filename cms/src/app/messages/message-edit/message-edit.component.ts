@@ -34,4 +34,10 @@ export class MessageEditComponent implements OnInit{
     //call the addMessageEvent Emitter's emit() method and pass it the new Message
     this.addMessageEvent.emit(message);
     }
+
+  onClear(){
+    //assign a blank value to the subject and msgText input elements in the form
+    this.subject.nativeElement.value = '';
+    this.msgText.nativeElement.value = '';
+  }
 }
