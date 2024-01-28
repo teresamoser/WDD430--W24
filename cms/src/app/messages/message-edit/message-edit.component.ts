@@ -39,5 +39,5 @@ export class MessageEditComponent implements OnInit{
     //assign a blank value to the subject and msgText input elements in the form
     this.subject.nativeElement.value = '';
     this.msgText.nativeElement.value = '';
-  }
+    }
 }

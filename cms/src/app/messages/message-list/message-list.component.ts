@@ -10,9 +10,9 @@ import { Message } from '../message.model';
 export class MessageListComponent implements OnInit{
 messages: Message[] = [
   //sample list of messages to test this component
-  new Message('1', 'message 1', 'This is the first message.', 'Daniel'),
-  new Message('2', 'message 2', 'This is the second message.', 'Johnny'),
-  new Message('3', 'message 3', 'This is the third message.', 'Carlos'),
+  new Message('1', 'message 1', 'This is the first message.', 'Jacob'),
+  new Message('2', 'message 2', 'This is the second message.', 'Jarod'),
+  new Message('3', 'message 3', 'This is the third message.', 'Heather'),
   ];
 
   constructor() { }
