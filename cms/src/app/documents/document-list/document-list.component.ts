@@ -8,15 +8,14 @@ import { Document } from '../document.model';
   styleUrl: './document-list.component.css'
 })
 export class DocumentListComponent {
-  Documents: Document[] = [
-    new Document(id, name, description, url ),
-    new Document(id, name, description, url ),
-    new Document(id, name, description, url ),
-    new Document(id, name, description, url ),
-    new Document(id, name, description, url )
-  ];
+  @Output() selectedDocumentEvent = new EventEmitter();
 
-  @Output() selectedDocumentEvent = new EventEmitter<Document>();
+  documents = [
+    new Document('1', 'DummyDocument 1', 'This is Dummy Document 1.', 'https://www.byui.com/1' ),
+    new Document('2', 'DummyDocument 2', 'This is Dummy Document 2.', 'https://www.byui.com/2' ),
+    new Document('3', 'DummyDocument 3', 'This is Dummy Document 3.', 'https://www.byui.com/3' ),
+    new Document('4', 'DummyDocument 4', 'This is Dummy Document 4.', 'https://www.byui.com/4' )
+  ];
 
   onSelected(document: Document){
     this.selectedDocumentEvent.emit(document);
