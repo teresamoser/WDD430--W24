@@ -8,7 +8,7 @@ import { MOCKCONTACTS } from './MOCKCONTACTS';
 
 export class ContactService {
 
-    contactSelectedEvent = new EventEmitter<Contact>();
+contactSelectedEvent = new EventEmitter<Contact>();
     
 constructor() {
     this.contacts = MOCKCONTACTS;
