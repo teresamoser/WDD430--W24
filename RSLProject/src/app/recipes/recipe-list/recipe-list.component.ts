@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RecipeListComponent {
   recipes: Recipe[];
-i: number;
+  i: number;
 
   constructor(private recipeService: RecipeService,
               private router: Router,
