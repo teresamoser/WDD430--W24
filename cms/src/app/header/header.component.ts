@@ -1,11 +1,18 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+    
+  }
+
   //navigation toggles
   isUserDropdownOpen: boolean = false;
   isNavbarCollapsed: boolean = true;
@@ -16,16 +23,6 @@ export class HeaderComponent {
   
   toggleNavbar(){
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
-  }
-  //navigation toggles end
-
-  //selected tab feature
-  //create a new event emitter
-  @Output() selectedFeatureEvent = new EventEmitter<string>();
-
-  //create method responsible for emitting or firing the selectedFeatureEvent
-  onSelected(selectedEvent: string) {
-    this.selectedFeatureEvent.emit(selectedEvent);
   }
 
 }

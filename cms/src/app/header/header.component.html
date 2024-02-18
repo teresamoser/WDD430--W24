@@ -17,9 +17,9 @@
 
       <div class="collapse navbar-collapse" [ngClass]="{ 'in': isNavbarCollapsed }">
           <ul class="nav navbar-nav">
-              <li><a href="#" (click)="onSelected('documents')">Documents</a></li>
-              <li><a href="#" (click)="onSelected('messages')">Messages</a></li>
-              <li><a href="#" (click)="onSelected('contacts')">Contacts</a></li>
+              <li routerLinkActivate="activate" ><a routerLink="/documents" >Documents</a></li>
+              <li routerLinkActivate="activate" ><a routerLink="/messages">Messages</a></li>
+              <li routerLinkActivate="activate" ><a routerLink="/contacts">Contacts</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <li class="dropdown" [ngClass]="{ open: isUserDropdownOpen }">
