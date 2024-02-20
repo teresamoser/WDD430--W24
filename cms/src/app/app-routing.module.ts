@@ -14,7 +14,10 @@ const appRoutes: Routes = [
         { path: ':id', component: DocumentDetailComponent},
         { path: ':id/edit', component: DocumentEditComponent},
     ]},
+    { path: '', redirectTo: '/messages', pathMatch: 'full' },
     { path: 'messages', component: MessageListComponent },
+    
+    { path: '', redirectTo: '/contacts', pathMatch: 'full' },
     { path: 'contacts', component: ContactsComponent },
     ];
 
@@ -23,7 +26,10 @@ const appRoutes: Routes = [
     exports: [RouterModule],
     })
 
-export class AppRoutingModules{}
+export class AppRoutingModule {
+
+}
+
 
 
 

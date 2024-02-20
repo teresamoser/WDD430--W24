@@ -11,13 +11,12 @@ import { DocumentsComponent } from './documents/documents.component';
 import { DocumentDetailComponent } from './documents/document-detail/document-detail.component';
 import { DocumentItemComponent } from './documents/document-item/document-item.component';
 import { DocumentListComponent } from './documents/document-list/document-list.component';
-import { MessageItemComponent } from './messages/message-item/message-item.component';
-import { MessageEditComponent } from './messages/message-edit/message-edit.component';
-import { MessageListComponent } from './messages/message-list/message-list.component';
 import { RouterModule } from '@angular/router';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
-
-
+import { AppRoutingModule } from './app-routing.module';
+import { MessageListComponent } from './messages/message-list/message-list.component';
+import { MessageEditComponent } from './messages/message-edit/message-edit.component';
+import { MessageItemComponent } from './messages/message-item/message-item.component';
 
 
 @NgModule({
@@ -32,14 +31,15 @@ import { DocumentEditComponent } from './documents/document-edit/document-edit.c
     DocumentDetailComponent,
     DocumentItemComponent,
     DocumentListComponent,
-    MessageItemComponent,
-    MessageEditComponent,
-    MessageListComponent,
     DocumentEditComponent,
+    MessageListComponent,
+    MessageEditComponent,
+    MessageItemComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

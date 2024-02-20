@@ -9,25 +9,24 @@ import { MOCKMESSAGES } from './MOCKMESSAGES';
 export class MessageService {
 
     messagesChanged = new EventEmitter<Message[]>();
-
-constructor() { 
-    this.messages = MOCKMESSAGES;
-    }
-
-private messages: Message [] = [];
-
-getMessages(): Message[] {
-    return this.messages.slice();
-    }
+    private messages: Message [] = [];
     
-getMessage(id: string): Message {
-    return this.messages.find((message) => message.id === id);
+    constructor() { 
+        this.messages = MOCKMESSAGES;
+        }
+    
+    getMessages(): Message[] {
+        return this.messages.slice();
+        }
+        
+    getMessage(id: string): Message {
+        return this.messages.find((message) => message.id === id);
+        }
+
+    addMessages(messages: Message[]){
+        this.messages.push(...messages);
+        this.messagesChanged.emit(this.messages.slice());
+
     }
-
-addMessages(messages: Message[]){
-    this.messages.push(...messages);
-    this.messagesChanged.emit(this.messages.slice());
-
-  }
 
 }

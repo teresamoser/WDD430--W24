@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './document-list.component.css'
 
 })
-export class DocumentListComponent {
+export class DocumentListComponent implements OnInit {
     documents: Document [] = [];
     i: number;
 
@@ -19,8 +19,14 @@ constructor(private documentService: DocumentService,
             private router: Router,
             private route: ActivatedRoute) { }
 
-ngOnInit(): void {
-    this.documents = this.documentService.getDocuments(); 
+ngOnInit() {
+    this.documents = this.documentService.getDocuments();
+    this.documentService.documentSelectedEvent
+      .subscribe (
+        (documents: Document[]) => {
+          this.documents = documents;
+        }
+      )
   }
 
 onNewDocument() {
