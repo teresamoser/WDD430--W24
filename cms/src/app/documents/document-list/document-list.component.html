@@ -9,7 +9,8 @@
         <div class="center-panel">
             <app-document-item
               *ngFor="let document of documents"
-              [document]="document">
+              [document]="document"
+              [index]="i">
             </app-document-item>
         </div>
     </div>

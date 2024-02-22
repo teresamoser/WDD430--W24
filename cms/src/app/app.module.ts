@@ -39,7 +39,8 @@ import { MessageItemComponent } from './messages/message-item/message-item.compo
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

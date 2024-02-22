@@ -9,16 +9,15 @@ import { RecipeService } from '../recipe.service';
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
   styleUrl: './recipe-detail.component.css'
-})
+  })
+  
 export class RecipeDetailComponent implements OnInit {
     recipe: Recipe;
     id: number;
   
   constructor(private recipeService: RecipeService,
               private route: ActivatedRoute,
-              private router: Router) { 
-
-    }
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -28,7 +27,7 @@ export class RecipeDetailComponent implements OnInit {
           this.recipe = this.recipeService.getRecipe(this.id);
           }
         );
-  }
+      }
 
   onAddToShoppingList() {
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);

@@ -9,8 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './recipe-list.component.html',
   styleUrl: './recipe-list.component.css'
 })
-export class RecipeListComponent {
-  recipes: Recipe[];
+export class RecipeListComponent implements OnInit {
+  recipes: Recipe [] = [];
   i: number;
 
   constructor(private recipeService: RecipeService,

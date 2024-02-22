@@ -15,23 +15,23 @@ export class DocumentListComponent implements OnInit {
     documents: Document [] = [];
     i: number;
 
-constructor(private documentService: DocumentService,
-            private router: Router,
-            private route: ActivatedRoute) { }
+  constructor(private documentService: DocumentService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
-ngOnInit() {
-    this.documents = this.documentService.getDocuments();
-    this.documentService.documentSelectedEvent
-      .subscribe (
-        (documents: Document[]) => {
-          this.documents = documents;
-        }
-      )
+  ngOnInit() {
+      this.documents = this.documentService.getDocuments();
+      this.documentService.documentSelectedEvent
+        .subscribe (
+          (documents: Document[]) => {
+            this.documents = documents;
+          }
+        )
+    }
+
+  onNewDocument() {
+      this.router.navigate(['new'], {relativeTo: this.route});
   }
-
-onNewDocument() {
-    this.router.navigate(['new'], {relativeTo: this.route});
-}
 
   
 }

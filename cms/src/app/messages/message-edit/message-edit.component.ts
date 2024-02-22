@@ -9,7 +9,7 @@ import { MessageService } from '../message.service';
   styleUrl: './message-edit.component.css'
 })
 
-export class MessageEditComponent{
+export class MessageEditComponent implements OnInit{
   @ViewChild('subject') subject: ElementRef;
   @ViewChild('msgText') msgText: ElementRef;
 

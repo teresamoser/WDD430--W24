@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Document } from '../document.model';
+
 import { DocumentService } from '../document.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -8,15 +9,15 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   templateUrl: './document-item.component.html',
   styleUrl: './document-item.component.css'
 })
-export class DocumentItemComponent implements OnInit{
-  document: Document;
-  id: string;
+export class DocumentItemComponent implements OnInit {
+  @Input() document: Document;
+  @Input() id: string;
 
   constructor(private documentService: DocumentService,
               private router: Router,
               private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params['id'];
