@@ -1,8 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Document } from '../document.model';
+import { Component, OnInit, Input} from '@angular/core';
 
-import { DocumentService } from '../document.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Document } from '../document.model';
 
 @Component({
   selector: 'app-document-item',
@@ -11,18 +9,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class DocumentItemComponent implements OnInit {
   @Input() document: Document;
-  @Input() id: string;
-
-  constructor(private documentService: DocumentService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+  @Input() index: number;
 
   ngOnInit() {
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.id = params['id'];
-        this.document = this.documentService.getDocument(this.id);
-      }
-    );
   }
 }

@@ -1,9 +1,10 @@
-<a class="list-group-item clearfix documentDiv" 
-    style="cursor: pointer;"
+<a style="cursor: pointer;"
     routerLink="{{ document.id }}"
-    routerLinkActive="active">
-      <div class="col-xs-6">
-        <h3>{{ document.name }}</h3>
-      </div>      
+    routerLinkActive="active"
+    class="list-group-item clearfix documentDiv">
+
+    <div class="col-xs-6">
+        <h5 class="list-group-item-heading">{{ document.name }}</h5>
+    </div>      
 </a>
   

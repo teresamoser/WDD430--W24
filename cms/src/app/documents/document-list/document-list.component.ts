@@ -12,21 +12,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 })
 export class DocumentListComponent implements OnInit {
-    documents: Document [] = [];
-    i: number;
+    documents: Document[] = [];
+    documentId: string = '';
 
   constructor(private documentService: DocumentService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) {
+    this.documents = this.documentService.getDocuments();
+   }
 
   ngOnInit() {
-      this.documents = this.documentService.getDocuments();
-      this.documentService.documentSelectedEvent
-        .subscribe (
-          (documents: Document[]) => {
-            this.documents = documents;
-          }
-        )
+    
     }
 
   onNewDocument() {

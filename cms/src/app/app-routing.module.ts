@@ -10,7 +10,6 @@ import { DocumentDetailComponent } from "./documents/document-detail/document-de
 const appRoutes: Routes = [
     { path: '', redirectTo: '/documents', pathMatch: 'full' },
     { path: 'documents', component: DocumentsComponent, children: [
-        { path: '', component: DocumentsComponent},
         { path: 'new', component: DocumentEditComponent},
         { path: ':id', component: DocumentDetailComponent},
         { path: ':id/edit', component: DocumentEditComponent},
