@@ -1,8 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, Inject, OnInit} from '@angular/core';
 import { Document } from '../document.model';
 
 import { DocumentService } from '../document.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { WinRefService } from '../../win-ref.service';
 
 @Component({
   selector: 'app-document-detail',
@@ -12,11 +13,16 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 
 export class DocumentDetailComponent implements OnInit {
   document: Document;
+  nativeWindow: any;
   id: string;
 
   constructor(private documentService: DocumentService,
+              private WindowRefService: WinRefService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) { 
+    this.nativeWindow = WindowRefService.getNativeWindow();
+              }
+
 
   ngOnInit() {
     this.route.params
@@ -31,5 +37,16 @@ export class DocumentDetailComponent implements OnInit {
   onEditDocument(){
     this.router.navigate(['edit'], {relativeTo: this.route}); 
   }
+
+  onView() {
+    if (this.document.url) {
+      this.nativeWindow.open(this.document.url);
+    }
+  }
+
+  onDelete() {
+    this.documentService.deleteDocument(this.document);
+    this.router.navigate(['/document.url']);
+ }
 
 }
