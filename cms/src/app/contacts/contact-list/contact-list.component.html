@@ -4,15 +4,16 @@
             <h2 class="panel-title text-left">Contacts</h2>
         </div>
         <div class="col-xs-6">
-            <button class="btn btn-success">New Contacts</button>
+            <button class="btn btn-success" 
+                    routerLinkActive="active" 
+                    (click)="onNewContact()">New Contact</button>
         </div>
     </div>
     <div class="panel-body">
         <app-contact-item
             *ngFor="let contact of contacts"
-            [contact]="contact"
-            (click)="onSelected(contact)"
-        ></app-contact-item>
+            [contact]="contact">
+        </app-contact-item>
     </div>
 
 </div>

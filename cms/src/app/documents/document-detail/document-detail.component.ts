@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Document } from '../document.model';
 
 import { DocumentService } from '../document.service';
@@ -38,13 +38,13 @@ export class DocumentDetailComponent implements OnInit {
     this.router.navigate(['edit'], {relativeTo: this.route}); 
   }
 
-  onView() {
+  onViewDocument() {
     if (this.document.url) {
       this.nativeWindow.open(this.document.url);
     }
   }
 
-  onDelete() {
+  onDeleteDocument() {
     this.documentService.deleteDocument(this.document);
     this.router.navigate(['/document.url']);
  }
