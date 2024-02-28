@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
@@ -14,16 +15,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DocumentListComponent implements OnInit {
     documents: Document[] = [];
     documentId: string = '';
+    private subscription: Subscription;
 
   constructor(private documentService: DocumentService,
               private route: ActivatedRoute,
-              private router: Router) {
-    this.documents = this.documentService.getDocuments();
-   }
+              private router: Router) { }
 
   ngOnInit() {
     this.documents = this.documentService.getDocuments();
-    this.documentService.documentChangedEvent
+    this.subscription = this.documentService.documentListChangedEvent
       .subscribe(
         (documents: Document[]) => {
           this.documents = documents;
@@ -31,10 +31,13 @@ export class DocumentListComponent implements OnInit {
       );
     
     }
-
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+    }
+  
   onNewDocument() {
       this.router.navigate(['new'], {relativeTo: this.route});
   }
 
-  
+ 
 }

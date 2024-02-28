@@ -10,12 +10,15 @@ import { ContactService } from './contact.service';
 })
 export class ContactsComponent implements OnInit{
   selectedContact: Contact;
+  Contact: Contact[];
 
 constructor(private contactService: ContactService) { }
 
 ngOnInit(): void{
-  this.contactService.contactSelectedEvent.subscribe((contact: Contact) =>{
-    this.selectedContact = contact;
+  this.contactService.contactSelectedEvent
+  .subscribe(
+    (contact: Contact[]) => {
+    this.Contact = contact;
   })
 }
 
