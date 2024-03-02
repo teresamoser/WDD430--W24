@@ -1,9 +1,9 @@
 import { Component, OnInit} from '@angular/core';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 @Component({

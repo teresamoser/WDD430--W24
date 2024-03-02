@@ -6,6 +6,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   templateUrl: './document-edit.component.html',
   styleUrl: './document-edit.component.css'
 })
+
 export class DocumentEditComponent implements OnInit {
   id: string;
   editMode = false;

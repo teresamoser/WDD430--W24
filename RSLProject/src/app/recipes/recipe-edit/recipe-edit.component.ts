@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-
 @Component({
   selector: 'app-recipe-edit',
   templateUrl: './recipe-edit.component.html',
   styleUrl: './recipe-edit.component.css'
 })
-export class RecipeEditComponent implements OnInit{
+
+export class RecipeEditComponent implements OnInit {
   id: number;
   editMode = false;
 
@@ -21,6 +21,6 @@ export class RecipeEditComponent implements OnInit{
             this.editMode = params['id'] != null;
           }
         );
-  }
+      }
 
 }

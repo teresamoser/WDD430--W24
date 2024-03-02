@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
-import { Document } from '../document.model';
-
-import { DocumentService } from '../document.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+
+import { Document } from '../document.model';
+import { DocumentService } from '../document.service';
 import { WinRefService } from '../../win-ref.service';
 
 @Component({

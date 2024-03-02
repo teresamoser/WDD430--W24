@@ -7,6 +7,7 @@ import { Document } from '../document.model';
   templateUrl: './document-item.component.html',
   styleUrl: './document-item.component.css'
 })
+
 export class DocumentItemComponent implements OnInit {
   @Input() document: Document;
   @Input() index: number;
