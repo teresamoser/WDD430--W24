@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Document } from '../document.model';
@@ -22,6 +22,8 @@ export class DocumentEditComponent implements OnInit {
   constructor(private documentService: DocumentService,
               private route: ActivatedRoute,
               private router: Router) { }
+
+  @ViewChild('f', { static: false }) slForm: NgForm;
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
