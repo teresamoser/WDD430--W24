@@ -11,15 +11,16 @@ import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 export class DocumentService {
     documentListChangedEvent = new Subject<Document[]>();
     documentSelectedEvent = new Subject<Document[]>();
-    maxDocumentId: any;
     documentsListClone: any;
+
+    private documents: Document [] = [];
+    private maxDocumentId: number;
 
     constructor() { 
         this.documents = MOCKDOCUMENTS;
         this.maxDocumentId = this.getMaxId();
         }
 
-    private documents: Document [] = [];
 
     getDocuments(): Document[] {
         return this.documents.slice();

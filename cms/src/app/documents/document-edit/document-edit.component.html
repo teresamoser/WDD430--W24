@@ -1,16 +1,19 @@
 <div class="panel panel-default">
     <div class="panel-body">
   
-      <form id="document-edit">
+      <form id="document-edit" #f="NgForm" (ngSubmit)="onSubmit(f)">
         <div class="row">
           <div class="col-sm-12 form-group">
             <label for="name">Document Title:</label>
             <input
               type="text"
               id="name"
+              [ngModel]=document?.description
               class="form-control"
               size="120"
-              max="120">
+              max="120"
+              required
+              #name="ngModel">
           </div>
         </div>
   
@@ -20,9 +23,12 @@
             <input
               type="text"
               id="description"
+              [ngModel]=document?.description
               class="form-control"
               size="120"
-              max="255">
+              max="255"
+              required
+              #name="ngModel">
           </div>
         </div>
   
@@ -32,9 +38,12 @@
             <input
               type="text"
               id="url"
+              [ngModel]=document?.description
               class="form-control"
               size="150"
-              max="255">
+              max="255"
+              required
+              #name="ngModel">
           </div>
         </div>
   
