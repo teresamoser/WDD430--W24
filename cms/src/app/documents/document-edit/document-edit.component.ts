@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
+import { Document } from '../document.model';
 
 @Component({
   selector: 'app-document-edit',
@@ -9,9 +11,12 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 export class DocumentEditComponent implements OnInit {
   id: string;
-  editMode = false;
+  editMode: boolean = false;
+  originalDocument:  Document;
+  document: Document;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.route.params
@@ -21,6 +26,10 @@ export class DocumentEditComponent implements OnInit {
           this.editMode = params['id'] != null;
         }
     );
+  }
+
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
 }

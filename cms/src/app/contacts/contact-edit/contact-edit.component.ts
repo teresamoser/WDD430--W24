@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-edit',
@@ -10,7 +10,8 @@ export class ContactEditComponent implements OnInit {
   id: string;
   editMode = false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router) { }
   
 
   ngOnInit(): void {
@@ -21,6 +22,10 @@ export class ContactEditComponent implements OnInit {
         this.editMode = params['id'] != null;
       }
     );
+  }
+
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
 }
