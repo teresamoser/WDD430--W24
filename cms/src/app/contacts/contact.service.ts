@@ -32,36 +32,35 @@ export class ContactService {
 
     addContact(newContact: Contact){
         if (newContact === null || newContact === undefined) return;
-        this.maxContactId++;
-        newContact.id = `${this.maxContactId}`;
-        this.contacts.push(newContact);
-        this.contactListChangedEvent.next(this.contacts.slice());
+            this.maxContactId++;
+            newContact.id = `${this.maxContactId}`;
+            this.contacts.push(newContact);
+            this.contactListChangedEvent.next(this.contacts.slice());
         }
 
     updateContact(original: Contact, newContact: Contact) {
         if (
             newContact === null || newContact === undefined ||
             original === null || original === undefined
-        ) {
+            ) {
             return;
-        }
+            };
         const pos = this.contacts.indexOf(original);
-        if (pos < 0) return;
-            
-        newContact.id = original.id;
-        this.contacts[pos] = newContact;
-        this.contactsListClone = this.contacts.slice();
-        this.contactListChangedEvent.next(this.contactsListClone);
+        if (pos < 0) return;   
+            newContact.id = original.id;
+            this.contacts[pos] = newContact;
+            this.contactsListClone = this.contacts.slice();
+            this.contactListChangedEvent.next(this.contactsListClone);
         }
 
     deleteContact(contact: Contact)  {
         if (!contact) {
             return;
-        }
+            }
         const pos = this.contacts.indexOf(contact);
         if (pos < 0) {
             return;
-        }
+            }
         this.contacts.splice(pos, 1);
         this.contactSelectedEvent.next(this.contacts.slice());
         } 

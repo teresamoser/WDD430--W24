@@ -21,7 +21,6 @@ export class DocumentService {
         this.maxDocumentId = this.getMaxId();
         }
 
-
     getDocuments(): Document[] {
         return this.documents.slice();
         }
@@ -32,10 +31,10 @@ export class DocumentService {
 
     addDocument(newDocument: Document){
         if (newDocument === null || newDocument === undefined) return;
-        this.maxDocumentId++;
-        newDocument.id = `${this.maxDocumentId}`;
-        this.documents.push(newDocument);
-        this.documentListChangedEvent.next(this.documents.slice());
+            this.maxDocumentId++;
+            newDocument.id = `${this.maxDocumentId}`;
+            this.documents.push(newDocument);
+            this.documentListChangedEvent.next(this.documents.slice());
         }
 
     updateDocument(original: Document, newDocument: Document) {
@@ -44,25 +43,22 @@ export class DocumentService {
             original === null || original === undefined
         ) {
             return;
-        }
+            };
         const pos = this.documents.indexOf(original);
         if (pos < 0) return;
-        
-        newDocument.id = original.id;
-        this.documents[pos] = newDocument;
-        this.documentsListClone = this.documents.slice();
-        this.documentListChangedEvent.next(this.documentsListClone);
-    }
+            newDocument.id = original.id;
+            this.documents[pos] = newDocument;
+            this.documentsListClone = this.documents.slice();
+            this.documentListChangedEvent.next(this.documentsListClone);
+        }
 
     deleteDocument(document: Document)  {
         if (!document) return;
-        const pos = this.documents.indexOf(document);
-
+            const pos = this.documents.indexOf(document);
         if (pos < 0) return;
-        
-        this.documents.splice(pos, 1);
-        this.documentsListClone = this.documents.slice();
-        this.documentListChangedEvent.next(this.documentsListClone);
+            this.documents.splice(pos, 1);
+            this.documentsListClone = this.documents.slice();
+            this.documentListChangedEvent.next(this.documentsListClone);
         } 
 
     getMaxId(): number {
