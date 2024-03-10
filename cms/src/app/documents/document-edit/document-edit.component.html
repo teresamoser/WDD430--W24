@@ -5,52 +5,58 @@
         <div class="row">
           <div class="col-sm-12 form-group">
             <label for="name">Document Title:</label>
-            <input
-              type="text"
-              id="name"
-              [ngModel]="document?.name"
-              name="name"
-              class="form-control"
-              size="120"
-              max="120"
-              required
-              #name="ngModel">
-          </div>
+              <input
+                  type="text"
+                  id="name"
+                  [ngModel]="document?.name"
+                  name="name"
+                  class="form-control required"
+                  size="120"
+                  max="120"
+                  required
+                  ngModel
+                  #nameref="ngModel">
+            </div>
         </div>
   
         <div class="row">
-          <div class="col-sm-12 form-group">
-            <label for="description">Document Description:</label>
-            <input
-              type="text"
-              id="description"
-              [ngModel]="document?.description"
-              name="description"
-              class="form-control"
-              size="120"
-              max="255"
-              #name="ngModel">
-          </div>
+            <div class="col-sm-12 form-group">
+              <label for="description">Document Description:</label>
+                  <input
+                    type="text"
+                    id="description"
+                    [ngModel]="document?.description"
+                    name="description"
+                    class="form-control"
+                    size="120"
+                    max="255"
+                    #description="ngModel">
+            </div>
         </div>
   
         <div class="row">
-          <div class="col-sm-12 form-group">
-            <label for="url">Document URL:</label>
-            <input
-              type="text"
-              id="url"
-              [ngModel]="document?.url"
-              name="url"
-              class="form-control"
-              size="150"
-              max="255"
-              required
-              #name="ngModel">
-          </div>
+            <div class="col-sm-12 form-group">
+              <label for="url">Document URL:</label>
+                <input
+                    type="text"
+                    id="url"
+                    [ngModel]="document?.url"
+                    name="url"
+                    class="form-control required"
+                    size="150"
+                    max="255"
+                    required
+                    ngModel
+                    #urlref="ngModel">
+            </div>
         </div>
 
-        <div class="alert alert-danger" role="alert">
-          The "Document Title" and "Document URL" are required fields.
+        <div *ngIf="(nameref.errors &&(nameref.untouched || nameref.notvalid)) || 
+                    (urlref.errors &&(urlref.untouched || urlref.notvalid))">
+            <div [hidden]="(nameref.errors?.pattern || urlref.errors?.pattern)" 
+                  class ="alert alert-danger">
+                  The "Document Title" and "Document URL" are required fields.
+            </div>
         </div>
   
         <div class="row">

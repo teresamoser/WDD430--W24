@@ -16,11 +16,13 @@ export class ContactEditComponent implements OnInit {
   editMode: boolean = false;
   originalContact: Contact;
   contact: Contact;
-groupContacts: any;
+  groupContacts: Contact[] = [];
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private contactService: ContactService) { }
+  constructor(
+       private contactService: ContactService,
+       private router: Router,
+       private route: ActivatedRoute) {
+       }
   
   @ViewChild('f', { static: false }) slForm: NgForm;
 
@@ -67,3 +69,4 @@ groupContacts: any;
     }
 
 }
+
