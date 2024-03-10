@@ -19,6 +19,9 @@ import { DocumentEditComponent } from './documents/document-edit/document-edit.c
 import { MessageListComponent } from './messages/message-list/message-list.component';
 import { MessageEditComponent } from './messages/message-edit/message-edit.component';
 import { MessageItemComponent } from './messages/message-item/message-item.component';
+import { MessageService } from './messages/message.service';
+import { DocumentService } from './documents/document.service';
+import { ContactService } from './contacts/contact.service';
 
 
 @NgModule({
@@ -47,7 +50,7 @@ import { MessageItemComponent } from './messages/message-item/message-item.compo
     AppRoutingModule, 
   ],
   
-  providers: [],
+  providers: [MessageService, DocumentService, ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
