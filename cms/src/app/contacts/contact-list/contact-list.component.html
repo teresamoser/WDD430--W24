@@ -1,18 +1,40 @@
 <div class="panel panel-default">
-    <div class="panel-heading clearfix">
+    <!-- <div class="panel-heading clearfix">
         <div class="col-xs-6">
             <h2 class="panel-title text-left">Contacts</h2>
         </div>
         <div class="col-xs-6">
-            <button class="btn btn-success" 
+            <a class="btn btn-success" 
                     routerLinkActive="active" 
-                    (click)="onNewContact()">New Contact</button>
+                    (click)="onNewContact()">New Contact</a>
         </div>
-    </div>
+    </div> -->
+    <div class="panel-heading clearfix">
+        <div class="row">
+           <span class="title pad-left-right"><h3><strong>Contacts</strong></h3></span>
+        </div>
+        <div class="row">
+           <div class="input-group pull-left pad-left-right col-xs-7">
+  
+              <!-- Add the search box input text field here-->
+              <input type="text"
+                        class="form-control"
+                        (keyup)="search(searchBox.value)"
+                        placeholder="Enter a search value" #searchBox >
+  
+              <div class="glyphicon glyphicon-search input-group-addon" 
+                    (click)="search(searchBox.value)"></div>
+           </div>
+        </div>
+        <div class="pull-right pad-left-right">
+           <a class="btn btn-success" [routerLink]="['new']">New Contact</a>
+        </div>
+     </div>
     <div class="panel-body">
         <app-contact-item
-            *ngFor="let contact of contacts"
-            [contact]="contact">
+            *ngFor="let contactEl of contacts | contactsFilter: term cdkDrag"
+            [contact]="contactEl"
+            [contactIndex]="contactEl.id" >   
         </app-contact-item>
     </div>
 

@@ -22,6 +22,7 @@ import { MessageItemComponent } from './messages/message-item/message-item.compo
 import { MessageService } from './messages/message.service';
 import { DocumentService } from './documents/document.service';
 import { ContactService } from './contacts/contact.service';
+import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ContactService } from './contacts/contact.service';
     DocumentEditComponent,
     MessageListComponent,
     MessageEditComponent,
-    MessageItemComponent
+    MessageItemComponent,
+    ContactsFilterPipe
   ],
   imports: [
     BrowserModule,
