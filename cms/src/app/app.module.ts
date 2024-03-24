@@ -23,6 +23,7 @@ import { MessageService } from './messages/message.service';
 import { DocumentService } from './documents/document.service';
 import { ContactService } from './contacts/contact.service';
 import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule, 
+    AppRoutingModule,
+    HttpClientModule
   ],
   
   providers: [MessageService, DocumentService, ContactService],
