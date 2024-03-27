@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Document } from './document.model';
-import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
+// import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 
 @Injectable({
     providedIn: 'root'
@@ -16,10 +16,9 @@ export class DocumentService {
 
     private documents: Document [] = [];
     private maxDocumentId: number;
-    private http: HttpClient;
     
-    constructor() { 
-        this.documents = MOCKDOCUMENTS;
+    constructor(private http: HttpClient) { 
+        // this.documents = MOCKDOCUMENTS;
         this.maxDocumentId = this.getMaxId();
         }
 
@@ -29,7 +28,7 @@ export class DocumentService {
             'X-Master-Key': '$2a$10$OGbdyCPIeJ61YoZaV4da8.KL.p1oGDiL6RWgqjvgrrk4lgHAygLk.',
             'X-Access-Key': '$2a$10$uJB1.LN3iaEHYGyryXqk..kk23CdGDghXS83t0ZjZUbzDcWb73izC',
             });
-            console.log(this.documents);
+            // console.log(this.documents);
         this.http
                 .get(url, {headers})
                 .subscribe({
