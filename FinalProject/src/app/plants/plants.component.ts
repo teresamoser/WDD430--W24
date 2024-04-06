@@ -8,7 +8,7 @@ import { PlantService } from './plant.service';
   templateUrl: './plants.component.html',
   styleUrl: './plants.component.css'
 })
-export class PlantsComponent implements OnInit{
+export class PlantsComponent implements OnInit{  
   selectedPlant: Plant;
   Plant: Plant[];
   
