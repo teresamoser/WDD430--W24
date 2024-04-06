@@ -11,6 +11,7 @@ import { PlantItemComponent } from './plants/plant-item/plant-item.component';
 import { PlantListComponent } from './plants/plant-list/plant-list.component';
 import { PlantEditComponent } from './plants/plant-edit/plant-edit.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
     BrowserModule,
     FormsModule,
     RouterModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    AppRoutingModule
     ],
   providers: [],
   bootstrap: [AppComponent],
