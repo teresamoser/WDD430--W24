@@ -18,7 +18,7 @@ export class PlantService {
     private maxPlantId: number;
     
     constructor() {
-        //this.contacts = 'mongoDB';
+        //this.plants = 'mongoDB';
         this.maxPlantId = this.getMaxId();
         }
 
