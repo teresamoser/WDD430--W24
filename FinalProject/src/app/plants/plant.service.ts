@@ -2,6 +2,7 @@ import { Subject } from "rxjs";
 
 import { Injectable } from '@angular/core';
 import { Plant } from './plant.model';
+import { HttpClient } from "@angular/common/http";
 
 
 @Injectable ({
@@ -16,6 +17,10 @@ export class PlantService {
 
     private plants: Plant [] = [];
     private maxPlantId: number;
+    http: HttpClient;
+    plantsUpdated: any;
+
+    constructor(http: HttpClient); 
     
     constructor() {
         //this.plants = 'mongoDB';
@@ -23,19 +28,31 @@ export class PlantService {
         }
 
     getPlants(): Plant[] {
-        return this.plants.slice();
-        }
+        this.http.get<{ message: string; plants: Plant[]; }>("http://localhost:3000/api/plants")
+            .subscribe((plantData) => {
+                this.plants = plantData.plants;
+                this.plantsUpdated.next([...this.plants]);
+            });
+        };
 
     getPlant(id: string): Plant {
     return this.plants.find((plant) => plant.id === id);
-        }
+        };
+    
+    getPlantUpdateListener(){
+        return this.plantsUpdated.asObservable();
+    }
 
     addPlant(newPlant: Plant){
         if (newPlant === null || newPlant === undefined) return;
             this.maxPlantId++;
             newPlant.id = `${this.maxPlantId}`;
-            this.plants.push(newPlant);
-            this.plantListChangedEvent.next(this.plants.slice());
+            this.http.post<{message: string}>("http://localhost:3000/api/plants", Plant)
+                .subscribe((responseData) => {
+                    console.log(responseData.message);
+                    this.plants.push(newPlant);
+                    this.plantListChangedEvent.next(this.plants.slice());
+                });
         }
 
     updatePlant(original: Plant, newPlant: Plant) {

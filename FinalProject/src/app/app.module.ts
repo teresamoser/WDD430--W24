@@ -12,6 +12,7 @@ import { PlantListComponent } from './plants/plant-list/plant-list.component';
 import { PlantEditComponent } from './plants/plant-edit/plant-edit.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     RouterModule,
     RouterModule.forRoot([]),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent],
