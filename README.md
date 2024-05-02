@@ -1,2 +1,2 @@
-This is my Project that I am working on through the Angular Tutorial.
-I am working on a Shopping List and Recipe app
+This is my Senior Project for my Software Engineering Degree with a Web Development Certificate.
+I am using software as a solution to a problem I was having with rescueing plants on clearance that no one wants.
