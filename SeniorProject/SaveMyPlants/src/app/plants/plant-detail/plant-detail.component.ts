@@ -23,7 +23,7 @@ export class PlantDetailComponent implements OnInit {
     .subscribe(
       (params: Params) => {
         this.id = params['id'];
-        this.plant = this.plantService.getPlant(this.id);
+        //this.plant = this.plantService.getPlant(this.id);
       }
     );
   }

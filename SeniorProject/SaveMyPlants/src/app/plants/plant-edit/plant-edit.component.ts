@@ -34,7 +34,7 @@ export class PlantEditComponent implements OnInit {
             this.editMode = false;
             return;
           }
-          this.originalPlant = this.plantService.getPlant(id);
+          //this.originalPlant = this.plantService.getPlant(id);
           if (
             this.originalPlant === undefined || 
             this.originalPlant === null

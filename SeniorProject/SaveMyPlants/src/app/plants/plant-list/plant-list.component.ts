@@ -24,7 +24,7 @@ export class PlantListComponent implements OnInit{
                   private router: Router) { }
 
       ngOnInit(): void {
-         this.plantService.getPlants();
+         //this.plantService.getPlants();
           this.subscription = this.plantService.plantSelectedEvent
           .subscribe(
                 (plants: Plant[]) => {

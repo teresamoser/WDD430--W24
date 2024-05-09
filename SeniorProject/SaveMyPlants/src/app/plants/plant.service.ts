@@ -33,6 +33,7 @@ export class PlantService {
                 this.plants = plantData.plants;
                 this.plantsUpdated.next([...this.plants]);
             });
+            return this.plants;
         };
 
     getPlant(id: string): Plant {

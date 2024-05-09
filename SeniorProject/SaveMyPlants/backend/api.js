@@ -1,4 +1,4 @@
-// const app = require("../backend/app");
+const app = require("../backend/api");
 const debug = require("debug")("node-angular");
 const http = require("http");
 const express = require("express");
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("api/plants",(req, res, next) => {
+app.post("api/plants",(req, res) => {
   const plant = new Plant({
     name: req.body.name,
     type: req.body.type,
@@ -42,7 +42,7 @@ app.post("api/plants",(req, res, next) => {
   });
 });
 
-app.get("/api/plants", (req, res, next) => {
+app.get("/api/plants", (_req, res) => {
   Plant.find().then(documents => {
       res.status(200).json({
         message: "Plants fetched successfully!",
